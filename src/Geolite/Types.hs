@@ -1,16 +1,16 @@
 module Geolite.Types where
 
-import Net.Types (IPv4Range)
-import Data.Text (Text)
 import Data.Fixed
+import Data.Text (Text)
+import Net.Types (IPv4Range)
 
 data E4
 
 instance HasResolution E4 where
   resolution _ = 4
 
-newtype GeonameId = GeonameId { getGeonameId :: Int }
-  deriving (Show,Read,Eq,Ord)
+newtype GeonameId = GeonameId {getGeonameId :: Int}
+  deriving (Show, Read, Eq, Ord)
 
 data City = City
   { cityGeonameId :: GeonameId
@@ -26,7 +26,8 @@ data City = City
   , cityName :: Text
   , cityMetroCode :: Maybe Int
   , cityTimeZone :: Text
-  } deriving (Show,Read,Eq,Ord)
+  }
+  deriving (Show, Read, Eq, Ord)
 
 data Block = Block
   { blockNetwork :: IPv4Range
@@ -39,5 +40,5 @@ data Block = Block
   , blockLatitude :: Maybe (Fixed E4)
   , blockLongitude :: Maybe (Fixed E4)
   , blockAccuracyRadius :: Maybe Int
-  } deriving (Show,Read,Eq,Ord)
-
+  }
+  deriving (Show, Read, Eq, Ord)
